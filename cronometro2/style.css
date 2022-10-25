@@ -1,0 +1,211 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/*  EMPIEZA EL CÓDIGO  */
+* {
+  box-sizing: border-box;
+  font-family: "Open Sans", "Roboto", sans-serif;
+}
+body {
+  text-align: center;
+  background-color: #404040;
+}
+.contador {
+  position: absolute;
+  top: 200px;
+  left: 655px;
+  height: 250px;
+  width: 250px;
+  padding: 65px 0;
+  font-size: 100px;
+  border: 5px solid #7b68ee;
+  border-radius: 50%;
+  transition: all 0.5s;
+  color: #7b68ee;
+  transition: all 0.2s;
+}
+
+.contador2 {
+  top: 100px;
+  left: 550px;
+  padding: 170px 0;
+  display: inline-block;
+  height: 500px;
+  width: 500px;
+  font-size: 100px;
+  border: 5px solid #7b68ee;
+  border-radius: 50%;
+  transition: all 0.8s;
+  color: #7b68ee;
+  transition: all 0.2s;
+  position: absolute;
+}
+.contador:hover,
+.contador2:hover {
+  border: 10px solid #7b68ee;
+}
+.start {
+  top: 285px;
+  left: 750px;
+  position: absolute;
+  height: 75px;
+  width: 60px;
+  opacity: 0;
+  cursor: pointer;
+  /* display: none; */
+}
+.start2 {
+  top: 293px;
+  left: 560px;
+  width: 480px;
+  position: fixed;
+}
+.reset {
+  visibility: hidden;
+}
+.reset2 {
+  position: fixed;
+  top: 430px;
+  left: 755px;
+  display: block;
+  visibility: visible;
+  height: 50px;
+  width: 100px;
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: 600;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+}
+.reset2:hover {
+  transition: all 0.3s;
+  border-radius: 5px;
+  box-shadow: 0 3px 2px rgba(255, 255, 255, 0.6);
+}
+.reset2:active {
+  transform: translateY(7px);
+}
