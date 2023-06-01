@@ -1,40 +1,62 @@
-const body = document.querySelector("body");
-const main = document.createElement("main");
-body.appendChild(main);
-main.innerHTML = `<div class='contador'><span class='minutos'>00</span>:<span class='segundos'>00</span></div><button class='boton-inicio'></button>`;
+let contador = document.querySelector(".contador");
+let botonS = document.querySelector("#start");
+let botonR = document.querySelector("#reset");
+var min = 0;
+seg = 0;
+mls = 0;
 
-function Play() {
-  var s = 0;
-  var min = 0;
+function eventos() {
+  botonS.addEventListener("click", Start);
+  botonR.addEventListener("click", Reset);
+}
 
-  function actualizaContador() {
-    s++;
-    if (s > 59) {
-      min++;
-      s = 00;
-    }
-    if (s < 10) {
-      s = "0" + s;
-    }
-    if (min < 10) {
-      min = "0" + min++;
-    }
-    document.querySelector(".minutos").innerHTML = min;
-    document.querySelector(".segundos").innerHTML = s;
-    botonPlay.removeEventListener("click", Play);
-    botonPlay.addEventListener("click", Stop);
+function Start() {
+  intervalo = setInterval(Timer, 10);
+  botonS.removeEventListener("click", Start);
+  botonS.addEventListener("click", Pause);
+  botonS.innerHTML = "pause";
+  contador.classList.remove("contador");
+  contador.classList.add("contador2");
+  botonR.classList.add("reset2");
+  botonS.classList.add("start2");
+}
+function Pause() {
+  clearInterval(intervalo);
+  botonS.addEventListener("click", Start);
+  botonS.innerHTML = "start";
+}
+function Reset() {
+  clearInterval(intervalo);
+  min = 0;
+  seg = 0;
+  mls = 0;
+  contador.innerHTML = 0;
+
+  botonR.classList.remove("reset2");
+  contador.classList.remove("contador2");
+  contador.classList.add("contador");
+  botonS.classList.remove("start2");
+}
+
+function Timer() {
+  mls++;
+  contador.innerHTML = seg + " " + mls;
+  if (mls > 99) {
+    mls = 0;
+    seg++;
+  } else if (seg > 59) {
+    seg = 0;
+    min++;
   }
-
-  i = setInterval(actualizaContador, 1000);
-  botonPlay.innerHTML = "stop";
+  if (min > 0) {
+    contador.innerHTML = min + " : " + seg + " " + mls;
+  }
+  if (mls < 10) {
+    contador.innerHTML = seg + " " + "0" + mls;
+  }
+  if (mls < 10 && min > 0) {
+    contador.innerHTML = min + " : " + seg + " " + "0" + mls;
+  }
 }
 
-function Stop() {
-  botonPlay.innerHTML = "reset";
-  clearInterval(i);
-  botonPlay.addEventListener("click", Play);
-}
-
-var botonPlay = document.querySelector(".boton-inicio");
-botonPlay.addEventListener("click", Play);
-botonPlay.innerHTML = "Play";
+eventos();
